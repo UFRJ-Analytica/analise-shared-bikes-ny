@@ -1,0 +1,29 @@
+Relatório:
+
+A função "valores_vazios" foi criada para identificar e tratar valores ausentes em um dataframe. A função recebe um dataframe como argumento e retorna o mesmo dataframe sem valores vazios.
+
+O tratamento de valores ausentes é uma etapa importante em análises de dados, pois a presença de valores ausentes pode comprometer a integridade dos resultados. Nesse contexto, é necessário escolher a estratégia adequada para tratar os valores ausentes, levando em consideração o tipo de variável (numérica ou categórica) e a natureza dos dados.
+
+Para tratar valores ausentes em variáveis numéricas, foi utilizada a estratégia de preenchimento com a média dos valores não ausentes. Isso foi feito por meio da biblioteca scikit-learn e da classe SimpleImputer, utilizando a estratégia 'mean'. Essa estratégia é adequada para variáveis numéricas, pois preserva a distribuição dos dados e reduz o impacto dos valores ausentes.
+
+Para tratar valores ausentes em variáveis categóricas, foi utilizada a estratégia de preenchimento com a moda (valor mais frequente) dos valores não ausentes. Isso também foi feito por meio da biblioteca scikit-learn e da classe SimpleImputer, utilizando a estratégia 'most_frequent'. Essa estratégia é adequada para variáveis categóricas, pois preserva a frequência dos valores e mantém a coerência dos dados.
+
+Para identificar os valores ausentes, a função utiliza o método isnull() do pandas, que retorna uma matriz booleana indicando quais elementos do dataframe são nulos. Em seguida, a função utiliza o método sum() do pandas para somar os valores nulos em cada coluna do dataframe.
+
+Ao final do tratamento de valores ausentes, a função retorna o dataframe sem valores vazios e registra uma mensagem de log indicando que os valores vazios foram tratados.
+
+Portanto, a função "valores_vazios" é uma ferramenta útil para lidar com valores ausentes em um dataframe, utilizando a estratégia adequada para cada tipo de variável.
+
+
+
+O relatório da função "remove_outliers" é o seguinte:
+
+A função "remove_outliers" foi criada para identificar e remover outliers de um dataframe. A função recebe um dataframe e uma lista opcional de colunas a serem analisadas como argumentos e retorna o mesmo dataframe sem os outliers identificados.
+
+O método utilizado para identificar os outliers foi o método de Tukey, que utiliza os quartis do conjunto de dados para determinar a presença de valores discrepantes. A função calcula o primeiro e terceiro quartis (q1 e q3) e o intervalo interquartil (iqr), que é a diferença entre q3 e q1. Em seguida, define limites inferior e superior (low e high) para identificar os valores discrepantes. Valores menores que low ou maiores que high são considerados outliers.
+
+Para cada coluna informada na lista de colunas ou em todas as colunas numéricas se nenhuma lista for informada, a função identifica e registra a quantidade de outliers encontrados. Em seguida, a função remove esses outliers do dataframe, utilizando os limites inferior e superior definidos pelo método de Tukey.
+
+Ao final do processo, a função retorna o dataframe sem os outliers identificados e registra uma mensagem de log indicando que os outliers foram removidos.
+
+Portanto, a função "remove_outliers" é uma ferramenta útil para identificar e remover outliers em um dataframe utilizando o método de Tukey. A função pode ser utilizada para limpar os dados antes de uma análise estatística, garantindo resultados mais precisos e confiáveis.
